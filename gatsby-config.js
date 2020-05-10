@@ -76,6 +76,21 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        excludedRoutes: ['wp/v2/users/**', '/wp/v2/themes*', '/wp/v2/settings*'],
+        baseUrl: `data.nerdynook.com`,
+        protocol: `http`,
+        hostingWPCOM: false,
+        useACF: true,
+        searchAndReplaceContentUrls: {
+          sourceUrl: `http://data.nerdynook.com`,
+          replacementUrl: ``,
+        },
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
