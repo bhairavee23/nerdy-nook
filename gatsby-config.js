@@ -85,10 +85,17 @@ module.exports = {
         protocol: `http`,
         hostingWPCOM: false,
         useACF: true,
-        searchAndReplaceContentUrls: {
-          sourceUrl: `http://data.nerdynook.com`,
-          replacementUrl: ``,
+        verboseOutput: true,
+        auth: {
+          jwt_user: 'bhairavee',
+          jwt_pass: 'harry23793',
+          jwt_base_path: "/jwt-auth/v1/token",
         },
+        // searchAndReplaceContentUrls: {
+        //   sourceUrl: `http://data.nerdynook.com`,
+        //   replacementUrl: ``,
+        // },
+        
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
