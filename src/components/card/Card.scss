@@ -107,10 +107,11 @@
         .read-more{
             @include transition(.3s);
             display:inline-block;
-            width:auto;
+            width:80%;
             text-align:center;
-            text-transform:uppercase;
+            text-transform:lowercase;
             background:#CE534D;
+            border-radius: 10px;
             color:#fff;
             padding:15px;
             margin-bottom:30px;

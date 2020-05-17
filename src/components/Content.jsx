@@ -5,7 +5,7 @@ export const Content = () => (
     <>
         <div>
             <Card/>
-            <Card/>
+            {/* <Card/> */}
         </div>
     </>
 );

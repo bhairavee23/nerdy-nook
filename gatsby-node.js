@@ -1,64 +1,85 @@
-// const path = require(`path`)
-// const { createFilePath } = require(`gatsby-source-filesystem`)
+const path = require(`path`)
+const { slash } = require(`gatsby-core-utils`)
 
-// exports.createPages = async ({ graphql, actions }) => {
-//   const { createPage } = actions
+// Implement the Gatsby API “createPages”. This is
+// called after the Gatsby bootstrap is finished so you have
+// access to any information necessary to programmatically
+// create pages.
+// Will create pages for WordPress pages (route : /{slug})
+// Will create pages for WordPress posts (route : /post/{slug})
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+  // The “graphql” function allows us to run arbitrary
+  // queries against the local Gatsby GraphQL schema. Think of
+  // it like the site has a built-in database constructed
+  // from the fetched data that you can run queries against.
 
-//   const blogPost = path.resolve(`./src/templates/blog-post.js`)
-//   const result = await graphql(
-//     `
-//       {
-//         allMarkdownRemark(
-//           sort: { fields: [frontmatter___date], order: DESC }
-//           limit: 1000
-//         ) {
-//           edges {
-//             node {
-//               fields {
-//                 slug
-//               }
-//               frontmatter {
-//                 title
-//               }
-//             }
-//           }
-//         }
-//       }
-//     `
-//   )
+  const result = await graphql(`
+    {
+      allWordpressPage {
+        edges {
+          node {
+            id
+            slug
+            status
+            template
+          }
+        }
+      }
+      allWordpressPost {
+        edges {
+          node {
+            id
+            slug
+            status
+            template
+            format
+          }
+        }
+      }
+    }
+  `)
 
-//   if (result.errors) {
-//     throw result.errors
-//   }
+  // Check for any errors
+  if (result.errors) {
+    console.error(result.errors)
+  }
 
-//   // Create blog posts pages.
-//   const posts = result.data.allMarkdownRemark.edges
+  // Access query results via object destructuring
+  const { allWordpressPage, allWordpressPost } = result.data
 
-//   posts.forEach((post, index) => {
-//     const previous = index === posts.length - 1 ? null : posts[index + 1].node
-//     const next = index === 0 ? null : posts[index - 1].node
+  const pageTemplate = path.resolve(`./src/templates/page.js`)
+  // We want to create a detailed page for each
+  // page node. We'll just use the WordPress Slug for the slug.
+  // The Page ID is prefixed with 'PAGE_'
+  allWordpressPage.edges.forEach(edge => {
+    // Gatsby uses Redux to manage its internal state.
+    // Plugins and sites can use functions like "createPage"
+    // to interact with Gatsby.
+    createPage({
+      // Each page is required to have a `path` as well
+      // as a template component. The `context` is
+      // optional but is often necessary so the template
+      // can query data specific to each page.
+      path: `/${edge.node.slug}/`,
+      component: slash(pageTemplate),
+      context: {
+        id: edge.node.id,
+      },
+    })
+  })
 
-//     createPage({
-//       path: post.node.fields.slug,
-//       component: blogPost,
-//       context: {
-//         slug: post.node.fields.slug,
-//         previous,
-//         next,
-//       },
-//     })
-//   })
-// }
-
-// exports.onCreateNode = ({ node, actions, getNode }) => {
-//   const { createNodeField } = actions
-
-//   if (node.internal.type === `MarkdownRemark`) {
-//     const value = createFilePath({ node, getNode })
-//     createNodeField({
-//       name: `slug`,
-//       node,
-//       value,
-//     })
-//   }
-// }
+  const postTemplate = path.resolve(`./src/templates/post.js`)
+  // We want to create a detailed page for each
+  // post node. We'll just use the WordPress Slug for the slug.
+  // The Post ID is prefixed with 'POST_'
+  allWordpressPost.edges.forEach(edge => {
+    createPage({
+      path: `/${edge.node.slug}/`,
+      component: slash(postTemplate),
+      context: {
+        id: edge.node.id,
+      },
+    })
+  })
+}
