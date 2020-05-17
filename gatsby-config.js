@@ -80,7 +80,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        // excludedRoutes: ['/wp/v2/themes*', '/wp/v2/settings*'],
+        excludedRoutes: ['/wp/v2/themes*', '/wp/v2/settings*'],
         baseUrl: `data.nerdynook.com`,
         protocol: `http`,
         hostingWPCOM: false,
