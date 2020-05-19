@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 
 // import Bio from "../components/bio"
 import Layout from "../components/layout/Layout"
-// import SEO from "../components/seo"
+import SEO from "../components/seo"
 // import { rhythm } from "../utils/typography"
 import { Header } from "../components/header/Header"
 import { Content } from "../components/Content"
@@ -16,7 +16,7 @@ const BlogIndex = ({ data, location }) => {
   return (
     <>
       <Header/>
-      {/* <div>Hello world</div> */}
+      <SEO title="All posts" />
       <Layout>
         <>
           <Content/>

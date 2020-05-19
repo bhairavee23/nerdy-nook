@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Nerdy Nook`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Bhairavee Chitnis`,
+      summary: `A Mumbai based blogger who loves to read, watch dramas and code! `,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `A fun blog to find all things nerdy!`,
+    siteUrl: `https://nerdynook.com/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `cbhairavee`,
     },
   },
   plugins: [
@@ -60,8 +60,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Nerdy Nook`,
+        short_name: `NerdyNook`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
