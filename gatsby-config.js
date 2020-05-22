@@ -81,14 +81,14 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         excludedRoutes: ['/wp/v2/themes*', '/wp/v2/settings*'],
-        baseUrl: `data.nerdynook.com`,
+        baseUrl: `thenerdynook.com`,
         protocol: `http`,
         hostingWPCOM: false,
         useACF: true,
         verboseOutput: true,
         auth: {
-          jwt_user: 'bhairavee',
-          jwt_pass: 'harry23793',
+          jwt_user: 'admin',
+          jwt_pass: 'Harry@23793',
           jwt_base_path: "/jwt-auth/v1/token",
         },
         // searchAndReplaceContentUrls: {
