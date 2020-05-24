@@ -14,7 +14,7 @@ const BlogIndex = ({ data, location }) => {
   // const posts = data.allMarkdownRemark.edges
 
   return (
-    <>
+    <div classname="flex flex-col h-full">
       <Header/>
       <SEO title="All posts" />
       <Layout>
@@ -23,7 +23,7 @@ const BlogIndex = ({ data, location }) => {
         </>
       </Layout>
       <Footer/>
-    </>
+    </div>
     // <Layout location={location} title={siteTitle}>
     //   <SEO title="All posts" />
     //   <Bio />
