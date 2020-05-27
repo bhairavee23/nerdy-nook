@@ -1,5 +1,5 @@
 import React from 'react';
-import NavPill from './navPill';
+import NavPill from './NavPill';
 
 const Navbar = () => {
     return (
