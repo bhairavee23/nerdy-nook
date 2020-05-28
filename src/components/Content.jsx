@@ -6,24 +6,32 @@ export const Content = () => {
     const data = useStaticQuery(
         graphql`
             query {
-                allWordpressPost(sort: {fields: [date] }) {
-                    edges {
-                        node {
-                            title 
-                            excerpt
+                allWordpressAcfPosts {
+                  edges {
+                    node {
+                      acf {
+                        post_excerpt
+                        post_header
+                        post_header_image {
+                          source_url
                         }
+                      }
                     }
+                  }
                 }
-            }
+              }
         `
     )
+
     console.log(data);
+    
     return (
     <>
         <div className="py-16 xl:py-12 flex flex-row justify-center flex-wrap">
-            {data.allWordpressPost.edges.map(({ node }) => (
-                <Card data={node}/>
+            {data.allWordpressAcfPosts.edges.map(({ node }) => (
+                <Card data={node.acf}/>
             ))}
+            
         </div>
     </>
     )
