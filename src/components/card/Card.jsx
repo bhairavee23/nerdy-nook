@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 // import './Card.scss';    
 
 // const Card = () => {
@@ -81,7 +82,8 @@ import React from 'react';
 //     );
 // };
 
-const Card = () => {
+const Card = ({ data }) => {
+    const {title, excerpt} = data;
     return (
         
             <div className="max-w-sm bg-white rounded-lg shadow-md hover:shadow-2xl overflow-hidden border m-6 mx-8">
@@ -91,19 +93,12 @@ const Card = () => {
                 <div className="space-y-3 divide-y divide-red-700">
                     <div className="text-center pt-6">
                         <h3 className="text-gray-700 font-semibold text-md">
-                            Blog Post
+                            {title}
                         </h3>
                     </div>
                     <div className="px-3 pb-3 pt-4">
                         <p className="text-sm text-gray-900 leading-sm">
-                            Bienvenido a la montaña de nepal un maravilloso lugar en el
-                            que podras escalar y repirar aire limpio, serás acompoañado
-                            por profesonales en alpinismo.
-                        </p>
-                        <p class="text-sm text-gray-900 leading-sm">
-                            Bienvenido a la montaña de nepal un maravilloso lugar en el
-                            que podras escalar y repirar aire limpio, serás acompoañado
-                            por profesonales en alpinismo.
+                            {parse(excerpt)}
                         </p>
                     </div>
                 </div>
