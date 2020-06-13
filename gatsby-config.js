@@ -90,7 +90,7 @@ module.exports = {
       options: {
         excludedRoutes: ['/wp/v2/themes*', '/wp/v2/settings*'],
         baseUrl: `thenerdynook.com`,
-        protocol: `http`,
+        protocol: `https`,
         hostingWPCOM: false,
         useACF: true,
         verboseOutput: true,
