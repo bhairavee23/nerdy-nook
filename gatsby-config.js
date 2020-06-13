@@ -95,8 +95,8 @@ module.exports = {
         useACF: true,
         verboseOutput: true,
         auth: {
-          jwt_user: 'admin',
-          jwt_pass: 'Harry@23793',
+          jwt_user: 'bhairavichitnis23@gmail.com',
+          jwt_pass: 'harry23793',
           jwt_base_path: "/jwt-auth/v1/token",
         },
         // searchAndReplaceContentUrls: {
