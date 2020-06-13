@@ -5,7 +5,7 @@ import {Link} from 'gatsby';
 const Card = ({data, slug}) => {
 
     const {post_header, post_excerpt, post_header_image} = data;
-    console.log(url);
+    
     const url = "/"+slug;
     console.log(url);
 
