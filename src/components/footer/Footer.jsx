@@ -3,7 +3,7 @@ import React from 'react';
 import "./Footer.scss";
 
 export const Footer = () => (
-    <div className="footer">
+    <div className="footer flex-shrink-0">
         <div className="footer-content">Nerdy Nook Footer</div>
     </div>
 );

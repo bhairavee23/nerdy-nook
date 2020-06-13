@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../components/card/Card';
-import {useStaticQuery, graphql} from 'gatsby';
+import { useStaticQuery } from 'gatsby';
+import { usePost } from '../queries/get-post-highlights';
 
 export const Content = () => {
     const data = useStaticQuery(
@@ -23,15 +24,19 @@ export const Content = () => {
         `
     )
 
-    console.log(data);
+    const posts = usePost();
+
+    
+    console.log(posts);
+    console.log(data);          
+    console.log("hello"); 
     
     return (
     <>
         <div className="py-16 xl:py-12 flex flex-row justify-center flex-wrap">
-            {data.allWordpressAcfPosts.edges.map(({ node }) => (
-                <Card data={node.acf}/>
+            {posts.map(({ node }) => (
+                <Card data={node.acf} slug={node.slug} />
             ))}
-            
         </div>
     </>
     )
