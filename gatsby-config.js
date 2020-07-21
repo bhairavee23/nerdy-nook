@@ -114,12 +114,14 @@ module.exports = {
         trackingId: process.env.GOOGLE_ANALTYICS_TRACKING_ID || 'none',
       }
     },
-    {
-      resolve: "gatsby-plugin-apollo",
-      options: {
-        uri: 'https://nerdynook.com/graphql'
-      }
-    }
+    // {
+    //   resolve: "gatsby-source-graphql",
+    //   options: {
+    //     typeName: 'nerdynook',
+    //     fieldName: 'rickAndMorty',
+    //     url: 'https://rickandmortyapi.com/graphql',
+    //   }
+    // }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
