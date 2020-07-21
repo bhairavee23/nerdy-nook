@@ -20,7 +20,7 @@ class Page extends Component {
         <div className="py-4 pb-8 text-center"><h1 className="text-4xl text-red-700">{StaticPage.title}</h1></div>
         <div className="space-y-6 post px-16 lg:px-0">{parse(StaticPage.content)}</div>
         <div className="py-16 px-16 lg:px-0 content-center mx-20">
-          <CommentsForm/>
+          <CommentsForm postId={StaticPage.wordpress_id}/>
         </div>
       </div>
       </Layout>
@@ -35,6 +35,7 @@ export default Page
 export const pageQuery = graphql`
   query($id: String!) {
     wordpressPage(id: { eq: $id }) {
+      wordpress_id
       title
       content
     }
