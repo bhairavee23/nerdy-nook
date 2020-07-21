@@ -50,12 +50,6 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
-    },
     // `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -119,7 +113,15 @@ module.exports = {
       options: {
         trackingId: process.env.GOOGLE_ANALTYICS_TRACKING_ID || 'none',
       }
-    }
+    },
+    // {
+    //   resolve: "gatsby-source-graphql",
+    //   options: {
+    //     typeName: 'nerdynook',
+    //     fieldName: 'rickAndMorty',
+    //     url: 'https://rickandmortyapi.com/graphql',
+    //   }
+    // }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
