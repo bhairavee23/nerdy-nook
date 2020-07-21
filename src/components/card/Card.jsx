@@ -4,13 +4,14 @@ import {Link} from 'gatsby';
 
 const Card = ({data, slug}) => {
 
+    console.log(data);
     const {post_header, post_excerpt, post_header_image} = data;
     
     const url = "/"+slug;
-    console.log(url);
 
     return (
         
+        <Link className="shadow-none" to={url}>
             <div className="max-w-sm bg-white rounded-lg shadow-md hover:shadow-2xl overflow-hidden border m-6 mx-8">
                 <div className="-mb-8">
                 <img className="h-48 w-full" src={post_header_image.source_url}/>
@@ -22,17 +23,14 @@ const Card = ({data, slug}) => {
                         </h3>
                     </div>
                     <div className="px-3 pb-3 pt-4">
-                        <p className="text-sm text-gray-900 leading-sm">
+                        <p className="text-sm text-gray-900 leading-sm text-center">
                             {parse(post_excerpt)}
                         </p>
                     </div>
                 </div>
-                <button
-                class="bg-red-700 w-full flex justify-center py-2 text-white font-semibold transition duration-300"
-                >
-                    <Link className="shadow-none hover:underline" to={url}>Read More...</Link>
-                </button>
+                
             </div>
+            </Link>
         
     )
 }

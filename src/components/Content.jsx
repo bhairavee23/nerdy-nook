@@ -26,11 +26,6 @@ export const Content = () => {
 
     const posts = usePost();
 
-    
-    console.log(posts);
-    console.log(data);          
-    console.log("hello"); 
-    
     return (
     <>
         <div className="py-16 xl:py-12 flex flex-row justify-center flex-wrap">
